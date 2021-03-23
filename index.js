@@ -101,9 +101,9 @@ lolKey = up.LolHumanKey
 //--Kontak
 const vcard = 'BEGIN:VCARD\n'
 + 'VERSION:3.0\n'
-+ 'FN:eren\n' // Nama
-+ 'ORG:Eren-Bot;\n' // Nama bot
-+ 'TEL;type=CELL;type=VOICE;waid=18296046446:+18296046446\n' // Nomor bot
++ 'FN: ERENJEAGER' // Nama
++ 'ORG:꧁꯭𝐄𝐑𝐄𝐍-𝐉𝐄𝐀𝐆𝐄𝐑࿈〖𓆐〗࿐᪲🖤;\n' // Nama bot
++ 'TEL;type=CELL;type=VOICE;waid=523317595519:+52 33 1759 5519\n' // Nomor bot
 + 'END:VCARD' 
 
 
@@ -248,7 +248,7 @@ async function starts() {
 		console.log(color('[','white'), color('!','red'), color(']','white'), color(' Scan the qr code above'))
 	})
 
-	fs.existsSync('./Lexa.json') && Lxa.loadAuthInfo('./Lexa.json')
+	fs.existsSync('./Lexa.json') && Lxa.loadAuthinfo('./Lexa.json')
 	Lxa.on('connecting', () => {
 		start('2', 'Connecting...')
 	})
@@ -256,7 +256,7 @@ async function starts() {
 		success('2', 'Connected')
 	})
 	await Lxa.connect({timeoutMs: 30*1000})
-        fs.writeFileSync('./Lexa.json', JSON.stringify(Lxa.base64EncodedAuthInfo(), null, '\t'))
+        fs.writeFileSync('./Lexa.json', JSON.stringify(Lxa.base64EncodedAuthinfo(), null, '\t'))
 
 
 	Lxa.on('group-participants-update', async (anu) => {
@@ -266,7 +266,7 @@ async function starts() {
 			console.log(anu)
 			if (anu.action == 'add') {
 				num = anu.participants[0]
-				teks = `Hola @${num.split('@')[0]}
+				teks = `Qlq @${num.split('@')[0]}
 Bienvenid@ a 
 *${mdata.subject}*
 ────────────────
@@ -280,11 +280,11 @@ Bienvenid@ a
 ┗━━━━━━━━━━━━━━━━━━━━
 
 Usa ${prefix}verify para verificarte y poder usar el bot.`
-				Lxa.sendMessage(mdata.id, teks, MessageType.text, { contextInfo: {"mentionedJid": [num]}})
+				Lxa.sendMessage(mdata.id, teks, MessageType.text, { contextinfo: {"mentionedJid": [num]}})
 			} else if (anu.action == 'remove') {
 				num = anu.participants[0]
-				teks = `Que bueno que te fuiste @${num.split('@')[0]} no te queriamos, que te violen en el camino 👋`
-				Lxa.sendMessage(mdata.id, teks, MessageType.text, {contextInfo: {"mentionedJid": [num]}})
+				teks = `Que bueno que te fuiste @${num.split('@')[0]} no te queriamos 👋`
+				Lxa.sendMessage(mdata.id, teks, MessageType.text, {contextinfo: {"mentionedJid": [num]}})
 			}
 		} catch (e) {
 			console.log('Error : %s', color(e, 'red'))
@@ -319,21 +319,21 @@ Usa ${prefix}verify para verificarte y poder usar el bot.`
 			const isCmd = body.startsWith(prefix)
       const is = budy.slice(0).trim().split(/ +/).shift().toLowerCase()
 			mess = {
-  wait: 'Aguantate ',
-  success: 'Eso era lo que querias mmg?',
+  wait: 'Lo estoy sacnado del toto, aguantate ',
+  success: 'Ya me lo saque del toto 🍑',
   Public: '🛡 Modo privado activado',
-  ferr: 'ocurrio un error asi que hazlo bien mmg',
-  limitend: 'Ta lento mi internet',
+  ferr: 'Intentalo cuando te bañes.',
+  limitend: 'El tiempo se agoto',
   error: {
-  stick: 'pon el comando bien mmg',
+  stick: 'Porque eres tan mmg(',
   Iv: 'Error en el link'
   },
   only: {
-    group: 'mmg este comando solo puede ser usado en grupos',
-    ownerG: 'mmg ste comando solo puede ser usado por el dueño del grupo',
-    ownerB: 'mmg este comando solo puede ser usado por el dueño del bot',
-    admin: 'mmg Debes de ser admin para este comando',
-    Badmin: 'mmg el bot debe ser admin para este comando',
+    group: 'Este comando solo puede ser usado en grupos',
+    ownerG: 'Ese comando no lo uses si no singas',
+    ownerB: 'Tu no singas por eso no puedes usar este comando ',
+    admin: 'Si no eres admin deha de poner eso',
+    Badmin: 'Dame admin mamaguavazo',
     daftarB: `Hola, usa *${prefix}verify* para poder usar el bot`
   }
 }
@@ -368,7 +368,7 @@ Usa ${prefix}verify para verificarte y poder usar el bot.`
 				Lxa.sendMessage(hehe, teks, text)
 			}
 			const mentions = (teks, memberr, id) => {
-				(id == null || id == undefined || id == false) ? Lxa.sendMessage(from, teks.trim(), extendedText, {contextInfo: {"mentionedJid": memberr}}) : Lxa.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": memberr}})
+				(id == null || id == undefined || id == false) ? Lxa.sendMessage(from, teks.trim(), extendedText, {contextinfo: {"mentionedJid": memberr}}) : Lxa.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextinfo: {"mentionedJid": memberr}})
 			}
 			const costum = (pesan, tipe, target, target2) => {
       Lxa.sendMessage(from, pesan, tipe, {quoted: {key: {fromMe: false, participant: `${target}`, ...(from ? {
@@ -403,7 +403,7 @@ const isQuotedSticker = type === 'extendedTextMessage' && content.includes('stic
 
 //---Metadata stiker
 			function addMetadata(packname, author) {	
-				if (!packname) packname = 'WABot'; if (!author) author = 'Bot';	
+				if (!packname) packname = 'WABot'; if (!author) author = 'Eren';	
 				author = author.replace(/[^a-zA-Z0-9]/g, '');	
 				let name = `${author}_${packname}`
 				if (fs.existsSync(`./src/stickers/${name}.exif`)) return `./src/stickers/${name}.exif`
@@ -538,7 +538,7 @@ const kapankah = ['Hari Lagi',
 
 
 //--Auto respon
-if(budy.match('eren')){
+if(budy.match('ErenJeager')){
 result = fs.readFileSync(`./temp/stick/emm.webp`)
   Lxa.sendMessage(from, result, sticker, {
 quoted: mek
@@ -550,7 +550,9 @@ quoted: mek
 //--Auto respon 2
 switch(is) {
   case 'bot':
-  case 'eren':
+  case 'darex':
+  case 'liz':
+  case 'Yerangel':
 buf = fs.readFileSync(`./temp/audio/onichan.mp3`)
 Lxa.sendMessage(from, buf, audio, {
   mimetype: 'audio/mp4', quoted: mek, ptt: true
@@ -565,28 +567,27 @@ case '/menu':
 case '/help':
 case 'help':
 case 'menu':
-hasil = `        ────────────────
+hasil = `       
 Hola *${pushname}* usa este comando ${prefix}menu
-        ────────────────`
+       
 reply(hasil)
         break
 }
 
-			switch(command) {
+			switch(command) 
 case 'help':
   case 'menu':
 case '?':
   if (!isRegister) return reply(mess.only.daftarB)
   uptime = process.uptime()
-  const Menu = {
-text: `  ──꧁꯭𝐄𝐑𝐄𝐍-𝐉𝐄𝐀𝐆𝐄𝐑࿈〖𓆐〗࿐᪲🖤──
+  const Me= {
+text:   ──꧁꯭𝐄𝐑𝐄𝐍-𝐉𝐄𝐀𝐆𝐄𝐑࿈〖𓆐〗࿐᪲🖤──
 ────────────────
-Hola *${pushname}* 
-────────────────͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
-────────────────
+Qlq tu singas? *${pushname}* 
+────────────͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
 〘 *BOT* 〙
 ‣ Prefijo:  *「 ${prefix} 」*
-‣ Yo soy:꧁꯭𝐄𝐑𝐄𝐍-𝐉𝐄𝐀𝐆𝐄𝐑࿈〖𓆐〗࿐᪲🖤
+‣ Yo soy: ꧁꯭𝐄𝐑𝐄𝐍-𝐉𝐄𝐀𝐆𝐄𝐑࿈〖𓆐〗࿐᪲🖤
 ‣ Conección: *Baileys*
 ‣ Tiempo encencido: *${kyun(uptime)}*
 ‣ Modo: *ON*
@@ -597,303 +598,193 @@ Hola *${pushname}*
 • _${Wa1}_
 ‣ Suscribete
 _${Ig}_
-────────────────
-┏━━━━━━━━━━━━━━━━━━━━
-┃──〘 ꧁꯭𝐄𝐑𝐄𝐍-𝐉𝐄𝐀𝐆𝐄𝐑࿈〖𓆐〗࿐᪲〙──
-┃━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Simi (Teks)*
-┃ _Simsimi Chat_
-┠⊷️ *${prefix}Info*
-┃ _Información del bot_
-┠⊷️ *${prefix}Owner*
-┃ _Dueño del bot_
-┠⊷️ *${prefix}Donasi*
-┃ _Información de donasión_
-┠⊷️ *${prefix}Ping*
-┃ _Velocidad_
-┗━━━━━━━━━━━━━━━━━━━━
-┏━━━━━━━━━━━━━━━━━━━━
-┃─────〘  *List menu* 〙─────
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 GRUP 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Listadmin*
-┃ _Lista de los admin_
-┠⊷️ *${prefix}Listonline*
-┃ _Lista de los miembros en linea_
-┠⊷️ *${prefix}Closegc*
-┃ _Cerrar grupo_
-┠⊷️ *${prefix}Opengc*
-┃ _Abrir grupo_
-┠⊷️ *${prefix}Promote*
-┃ _Dar admin_
-┠⊷️ *${prefix}Demote*
-┃ _Quitar admin_
-┠⊷️ *${prefix}Setname*
-┃ _Establecer nombre del grupo_
-┠⊷️ *${prefix}Setdesk*
-┃ _Establecer descripción del grupo_
-┠⊷️ *${prefix}Add*
-┃ _Añadir miembro_
-┠⊷️ *${prefix}Kick*
-┃ _Eliminar miembro_
-┠⊷️ *${prefix}Tagall*
-┃ _Mencionar a todos_
-┠⊷️ *${prefix}Linkgc*
-┃ _Link del grupo_
-┠⊷️ *${prefix}Leave*
-┃ _Eliminar bot_
-┠⊷️ *${prefix}Notif*
-┃ _Notificación a todos_
-┠⊷️ *${prefix}Welcome*
-┃ _On/off Bienvenida_
-┠⊷️ *${prefix}Delete*
-┃ _Eliminar mensaje del bot_
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 FUN 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Alay (Texto)*
-┃ _Font Alay_
-┠⊷️ *${prefix}Alay2 (Texto)*
-┃ _Font Alay_
-┠⊷️ *${prefix}Reverse (Texto)*
-┃ _Escribir al reves_
-┠⊷️ *${prefix}Hilih (Texto)*
-┃ _Cambiar vocales por la i_
-┠⊷️ *${prefix}Namae (Texto)*
-┃ _Nombre ninpushnameu_
-┠⊷️ *${prefix}Pantun*
-┃ _Poema al azar_
-┠⊷️ *${prefix}Bucin*
-┃ _Expreción al azar_
-┠⊷️ *${prefix}Bijak*
-┃ _Palabras de motivasión_
-┠⊷️ *${prefix}Chatprank (Texto1/Texto2)*
-┃ _Juntar palabras o fraces_
-┠⊷️ *${prefix}Itsme*
-┃ _Tu perfil_
-┠⊷️ *${prefix}Fml*
-┃ _Historias de vida_
-┠⊷️ *${prefix}Asupan*
-┃ _Cronologia_
-┠⊷️ *${prefix}Tagme*
-┃ _Mencionarte_
-┠⊷️ *${prefix}Fitnah (Menciona a la persona|texto1|texto2)*
-┃ _Mensaje falso de una persona_
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 MEDIA 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}listvn*
-┃ _Lista de sonidos_
-┠⊷️ *${prefix}listimg*
-┃ _Lista de fotos_
-┠⊷️ *${prefix}liststik*
-┃ _Lista de sticker_
-┠⊷️ *${prefix}listvid*
-┃ _Lista de videos_
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 EDITING 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Gtav (Foto)*
-┃ _Convierte foto al estilo Gtav_
-┠⊷️ *${prefix}Wanted (Foto)*
-┃ _Convierte foto al estilo wanted_
-┠⊷️ *${prefix}Drawing (Foto)*
-┃ _Convierte foto a dibujo_
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 ANIME 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Kusonime (Nombre)*
-┃ _Información de animes_
-┠⊷️ *${prefix}Neonime (Nombre)*
-┃ _Información de neoanimes_
-┠⊷️ *${prefix}Charnime (Nombre)*
-┃ _Personajes de anime_
-┠⊷️ *${prefix}Wait*
-┃ _Busca información de una imagen de anime_
-┠⊷️ *${prefix}Anime*
-┃ _Imagen aleatoria de anime_
-┠⊷️ *${prefix}Loli*
-┃ _Imagen aleatoria de loli_
-┠⊷️ *${prefix}Neko*
-┃ _Imagen aleatoria de neko_
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 GAME 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Tebakgambar*
-┃ _Adivinanza de imagen_
-┠⊷️ *${prefix}Caklontong*
-┃ _Quiz aleatorio_
-┠⊷️ *${prefix}Seberapagay (Nombre)*
-┃ _Porcentaje de gay_
-┠⊷️ *${prefix}Seberapabucin (Nombre)*
-┃ _Porcentaje de bucin_
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 TOD 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷ *${prefix}Truth*
-┠⊷ *${prefix}Dare*
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 KERANG AJAIB 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷ *${prefix}Apakah (Texto)*
-┠⊷ *${prefix}Bisakah (Texto)*
-┠⊷ *${prefix}Kapankah (Texto)*
-┠⊷ *${prefix}Rate (Texto)*
-┠⊷ *${prefix}Gantengcek (Texto)*
-┠⊷ *${prefix}Cantikcek (Texto)*
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 TOOLS 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Tomp3*
-┃ _Audio de video_
-┠⊷️ *${prefix}Play (Nombre)*
-┃ _Canciones_
-┠⊷️ *${prefix}Tts (Texto)*
-┃ _Texto a sonido_
-┠⊷️ *${prefix}Igstalk (username)*
-┃ _Perfil de ig_
-┠⊷️ *${prefix}Timer (Hora)*
-┠⊷️ *${prefix}Wame*
-┃ _Link de wa.me_
-┠⊷️ *${prefix}Nulis (Texto)*
-┃ _Texto en cuaderno_
-┠⊷️ *${prefix}Ocr*
-┃ _Texto en imagen_
-┠⊷️ *${prefix}Wait*
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 TEXT0 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Tahta (Texto)*
-┃ _Ex : ${prefix}Tahta Mr.pato_
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 TEXTO2 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Ephoto list*
-┃ _Lista de ephoto_
-┠⊷️ *${prefix}Ephoto (code + Texto)*
-┃ _Ex : ${prefix}Ephoto 25 Mr.pato_
-┠⊷️ *${prefix}Textpro list*
-┃ _Lista de textpro
-┠⊷️ *${prefix}Textpro (code + Texto)*
-┃ _Ex : ${prefix}Textpro 55 Mr.pato_
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 IMAGENES 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Cogan*
-┃ _Foto aleatoria de un hombre_
-┠⊷️ *${prefix}Cecan*
-┃ _Foto aleatoria de una mujer_
-┠⊷️ *${prefix}Meme*
-┃ _Meme aleatorio_
-┠⊷️ *${prefix}Twit*
-┃ _Twit aleatorio_
-┠⊷️ *${prefix}Quotes*
-┃ _Imagen de quotes_
-┠⊷️ *${prefix}Wp*
-┃ _Imagen aleatoria_
-┠⊷️ *${prefix}Cyberpunk*
-┃ _Imagen cyberpunk aleatoria_
-┠⊷️ *${prefix}Img (texto)*
-┃ _Imagen_
-┠⊷️ *${prefix}Google (Texto)*
-┃ _Buscar cosas en google_
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 EDUCACIÓN 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Brainly (Pregunta)*
-┃ _Buscar cosas_
-┠⊷️ *${prefix}Wiki (Pregunta)*
-┃ _Buscar cosas_
-┠⊷️ *${prefix}Kbbi (Pregunta)*
-┃ _Diccionario_
-┠⊷️ *${prefix}Tl (Texto/code)*
-┃ _Traducir_
-┠⊷️ *${prefix}Fakta*
-┃ _Frase_
-┠⊷️ *${prefix}Kodebahasa*
-┃ _Codigo de idioma_
-┠⊷️ *${prefix}Kodenegara*
-┃ _Codigo de país_
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 OTRO 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Lirik (Nombre)*
-┃ _Letra de canciones_
-┠⊷️ *${prefix}Chord (Nombre)*
-┃ _Acordes de canciones_
-┠⊷️ *${prefix}Jadwaltvnow*
-┃ _Horario de tv_
-┠⊷️ *${prefix}Map (Area)*
-┃ _Un mapa_
-┠⊷️ *${prefix}Trendtwit*
-┃ _Tendencias de twiter_
-┠⊷️ *${prefix}Beritahoax*
-┃ _Noticias falsas_
-┠⊷️ *${prefix}Gplaystore*
-┃ _Busqueda en playstore_
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 HORÓSCOPO 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Arti (Nombre)*
-┃ _Significado de tu nombre_
-┠⊷️ *${prefix}Couple (Nombre & Nombre)*
-┃ _Coincidencias de nombre_
-┠⊷️ *${prefix}Jadian (Escribir fecha)*
-┃ _Caracteristicas de usuario_
-┠⊷️ *${prefix}Weton (Escribir fecha)*
-┃ _Información de fecha_
-┠⊷️ *${prefix}Zodiak (Texto)*
-┃ _Signo zodiaco_
-┠⊷️ *${prefix}Artimimpi (Texto)*
-┃ _Significado de tus sueños_
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 TIEMPO 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Cuaca (Área)*
-┃ _Información meteorológica_
-┠⊷️ *${prefix}Infogempa*
-┃ _Información de terremotos recientes_
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 DESCARGAS 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Ytmp3 (Link)*
-┃ _Descargar audios de YT, es mejor con play_
-┠⊷️ *${prefix}Ytmp4 (Link)*
-┃ _Descargar video de YT_
-┠⊷️ *${prefix}Fb (Link)*
-┃ _Descargar de FB_
-┠⊷️ *${prefix}Ig (Link)*
-┃ _Descargar de IG_
-┠⊷️ *${prefix}Scdl (Link)*
-┃ _Descargador de Soundcloud_
-┠⊷️ *${prefix}Tik (Link)*
-┃ _Descargar Tiktok_
-┠⊷️ *${prefix}Pin (Link)*
-┃ _Descargar Pinterest_
-┠⊷️ *${prefix}Joox (Canción)
-┃ _Descargar canciones_
-┗━━━━━━━━━━━━━━━━━━━━
-*〘 OWNER 〙*
-┏━━━━━━━━━━━━━━━━━━━━
-┠⊷️ *${prefix}Clone*
-┃ _Clonacion de perfil_
-┠⊷️ *${prefix}Block*
-┃ _Bloquear_
-┠⊷️ *${prefix}Unblock*
-┃ _Desbloquear_
-┠⊷️ *${prefix}Bc*
-┃ _Anuncio_
-┠⊷️ *${prefix}Blocklist*
-┃ _Lista de usuarios bloqueados_
-┗━━━━━━━━━━━━━━━━━━━━`,
 
-contextInfo: {
+
+⌦⌬꧁꯭𝐄𝐑𝐄𝐍-𝐉𝐄𝐀𝐆𝐄𝐑࿈〖𓆐〗࿐᪲🖤⌬
+
+⌦ *${prefix}Simi (Teks)
+⌦ *${prefix}info*
+⌦ *${prefix}Dueño*
+⌦ *${prefix}Donacion*
+⌦*${prefix}Velosidad*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+
+⌦────⌬  *List menu*  ⌬─────
+
+*〘 GRUP 〙*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Listadmin*
+⌦*${prefix}Listonline*
+⌦ *${prefix}Cerrar*
+⌦ *${prefix}Abrir*
+⌦ *${prefix}daradmin*
+⌦ *${prefix}Quitaradmin*
+⌦ *${prefix}nuevo nombre*
+⌦ *${prefix}Setdesk*
+⌦ *${prefix}Add*
+⌦ *${prefix}Elimina*
+⌦ *${prefix}Tagall*
+⌦ *${prefix}Linkgc*
+⌦ *${prefix}Leave*
+⌦ *${prefix}Notif*
+⌦ *${prefix}Welcome*
+⌦ *${prefix}Delete*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*⌬ FUN ⌬*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Alay (Texto)*
+⌦ *${prefix}Alay2 (Texto)*
+⌦ *${prefix}Reverse (Texto)*
+⌦*${prefix}Hilih (Texto)*
+⌦ *${prefix}Namae (Texto)*
+⌦ *${prefix}Poesia*
+⌦ *${prefix}Bucin*
+⌦ *${prefix}Bijak*
+⌦ *${prefix}Chatprank (Texto1/Texto2)*
+⌦ *${prefix}Itsme*
+⌦ *${prefix}Fml*
+⌦ *${prefix}Asupan*
+⌦ *${prefix}Tagme*
+⌦ *${prefix}Fitnah (Menciona a la persona|texto1|texto2)*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*⌬ MEDIA ⌬*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}listvn*
+⌦ *${prefix}listimg*
+⌦ *${prefix}liststik*
+⌦ *${prefix}listvid*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*⌬ EDITING ⌬*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Gtav (Foto)*
+⌦ *${prefix}Wanted (Foto)*
+⌦ *${prefix}Drawing (Foto)*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*⌬ ANIME ⌬*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Kusonime (Nombre)*
+⌦ *${prefix}Neonime (Nombre)*
+⌦ *${prefix}Charnime (Nombre)*
+⌦ *${prefix}Wait*
+⌦ *${prefix}Anime*
+⌦ *${prefix}Loli*
+⌦ *${prefix}Neko*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+ ⌬ GAME ⌬
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Tebakgambar*
+⌦ *${prefix}Caklontong*
+⌦ *${prefix}Seberapagay (Nombre)*
+⌦ *${prefix}Seberapabucin (Nombre)*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*⌬ TOD ⌬*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Truth*
+⌦ *${prefix}Dare*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*⌬ KERANG AJAIB ⌬*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦*${prefix}Apakah (Texto)*
+⌦*${prefix}Bisakah (Texto)*
+⌦*${prefix}Kapankah (Texto)*
+⌦*${prefix}Rate (Texto)*
+⌦*${prefix}Gantengcek (Texto)*
+⌦*${prefix}Cantikcek (Texto)*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*〘 TOOLS 〙*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Tomp3*
+⌦ *${prefix}Play (Nombre)*
+⌦ *${prefix}Tts (Texto)*
+⌦ *${prefix}Igstalk (username)*
+⌦ *${prefix}Timer (Hora)*
+⌦ *${prefix}Wame*
+⌦ *${prefix}Nulis (Texto)*
+⌦ *${prefix}Ocr*
+⌦ *${prefix}Wait*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*⌬ TEXT0 ⌬*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Tahta (Texto)*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*⌬ TEXTO2 ⌬*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Ephoto list*
+⌦ *${prefix}Ephoto (code + Texto)*
+⌦ *${prefix}Textpro list*
+⌦ *${prefix}Textpro (code + Texto)*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*⌬ IMAGENES ⌬*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Cogan*
+⌦ *${prefix}Cecan*
+⌦ *${prefix}Meme*
+⌦ *${prefix}Twit*
+⌦ *${prefix}Quotes*
+⌦ *${prefix}Wp*
+⌦ *${prefix}Cyberpunk*
+⌦ *${prefix}Img (texto)*
+⌦ *${prefix}Google (Texto)*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*⌬  EDUCACIÓN ⌬*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Brainly (Pregunta)*
+⌦ *${prefix}Wiki (Pregunta)*
+⌦ *${prefix}Tl (Texto/code)*
+⌦ *${prefix}Fakta*
+⌦ *${prefix}Kodebahasa*
+⌦ *${prefix}Kodenegara*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*⌬ OTRO ⌬*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Lirik (Nombre)*
+⌦ *${prefix}Chord (Nombre)*
+⌦ *${prefix}Jadwaltvnow*
+⌦ *${prefix}Map (Area)*
+⌦ *${prefix}Trendtwit*
+⌦ *${prefix}Beritahoax*
+⌦ *${prefix}Gplaystore*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*⌬ HORÓSCOPO ⌬*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Arti (Nombre)*
+⌦ *${prefix}Couple (Nombre & Nombre)*
+⌦ *${prefix}Jadian (Escribir fecha)*
+⌦ *${prefix}Weton (Escribir fecha)*
+⌦ *${prefix}Zodiak (Texto)*
+⌦ *${prefix}Artimimpi (Texto)*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*⌬ TIEMPO ⌬
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Cuaca (Área)*
+⌦ *${prefix}infogempa*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*⌬ DESCARGAS ⌬*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Ytmp3 (Link)*
+⌦ *${prefix}Ytmp4 (Link)*
+⌦ *${prefix}Fb (Link)*
+⌦ *${prefix}Ig (Link)*
+⌦ *${prefix}Scdl (Link)*
+⌦ *${prefix}Tik (Link)*
+⌦ *${prefix}Pin (Link)*
+⌦ *${prefix}Descargar(Canción)
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+*⌬ DUEÑO ⌬*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
+⌦ *${prefix}Clone*
+⌦ *${prefix}Bloquea*
+⌦ *${prefix}UnBlo*
+⌦ *${prefix}Bc*
+⌦ *${prefix}Blocklist*
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋`,
+
+contextinfo: {
   mentionedJid: [sender]
 }
   }
   Lxa.sendMessage(from, Menu, text, {
-quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "𝕸𝖗.𝕻𝖆𝖙𝖔 -𝕭𝖔𝖙⚜️🦆", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEABERERESERMVFRMaHBkcGiYjICAjJjoqLSotKjpYN0A3N0A3WE5fTUhNX06MbmJiboyiiIGIosWwsMX46/j///8BERERERIRExUVExocGRwaJiMgICMmOiotKi0qOlg3QDc3QDdYTl9NSE1fToxuYmJujKKIgYiixbCwxfjr+P/////CABEIADoAUQMBIgACEQEDEQH/xAAsAAEAAwEBAQAAAAAAAAAAAAAAAgMFBAYBAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAADwYAAAAAEo2EoeggYctbsPMX7XIZPycABZWNvLoHTfnjTo4x0c4AAAAAAAf//EAC0QAAMAAgEDAwIDCQAAAAAAAAECAwQRAAUSMRMhImGSFCCRJEBBQlBRUmOx/9oACAEBAAE/AP3dFLsqjW2IA2QB+p5PHvUoJxdy7FU7VJ7iPcgcM6AMxRtKwVjrwT4B4Y2Hdub/ABRXb28K2tE/Q74+Nead7yZV+BHcNbDglSPodcKsp0wIOgf14mLeisyKCFAJII/ipf8A4vCrKFJBAYbH1Hj8kXWdFdpJUD+RywB+0g8z8N4dXtiQgHxlo5STuyy2qbbmXTHxhjt2SZ6I4yISuzy/17IZudWImmKoT0bvH9pkHc+DpAQxbma/bTqUE2hwEAlUO/eQjiXMARsnTUvAX/EZxgS7vtUQIAF03OjXcdSxJnbLS0kPzddbPbsFCOUFQQKBge1dBv8AEjY/JJ1m4ZpJQDfwbYB+0g8yOvXybpZ8eHm21AfTesgRuXrOpUpjzj9ELnf3luWyTe+Tek0L2ZmPkBSx3teX6lW4uTKS0v7Wou9v7huY/VDj+l24sG9K5vLff8GOv7NzEy/wl43WEneWivd3a7g2w3sRzKyGybeqyKnwRAq70AihB5/on//EABQRAQAAAAAAAAAAAAAAAAAAAED/2gAIAQIBAT8AR//EABQRAQAAAAAAAAAAAAAAAAAAAED/2gAIAQMBAT8AR//Z", "scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw==" } } } })
+quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "ErenJeager", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEABERERESERMVFRMaHBkcGiYjICAjJjoqLSotKjpYN0A3N0A3WE5fTUhNX06MbmJiboyiiIGIosWwsMX46/j///8BERERERIRExUVExocGRwaJiMgICMmOiotKi0qOlg3QDc3QDdYTl9NSE1fToxuYmJujKKIgYiixbCwxfjr+P/////CABEIADoAUQMBIgACEQEDEQH/xAAsAAEAAwEBAQAAAAAAAAAAAAAAAgMFBAYBAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAADwYAAAAAEo2EoeggYctbsPMX7XIZPycABZWNvLoHTfnjTo4x0c4AAAAAAAf//EAC0QAAMAAgEDAwIDCQAAAAAAAAECAwQRAAUSMRMhImGSFCCRJEBBQlBRUmOx/9oACAEBAAE/AP3dFLsqjW2IA2QB+p5PHvUoJxdy7FU7VJ7iPcgcM6AMxRtKwVjrwT4B4Y2Hdub/ABRXb28K2tE/Q74+Nead7yZV+BHcNbDglSPodcKsp0wIOgf14mLeisyKCFAJII/ipf8A4vCrKFJBAYbH1Hj8kXWdFdpJUD+RywB+0g8z8N4dXtiQgHxlo5STuyy2qbbmXTHxhjt2SZ6I4yISuzy/17IZudWImmKoT0bvH9pkHc+DpAQxbma/bTqUE2hwEAlUO/eQjiXMARsnTUvAX/EZxgS7vtUQIAF03OjXcdSxJnbLS0kPzddbPbsFCOUFQQKBge1dBv8AEjY/JJ1m4ZpJQDfwbYB+0g8yOvXybpZ8eHm21AfTesgRuXrOpUpjzj9ELnf3luWyTe+Tek0L2ZmPkBSx3teX6lW4uTKS0v7Wou9v7huY/VDj+l24sG9K5vLff8GOv7NzEy/wl43WEneWivd3a7g2w3sRzKyGybeqyKnwRAq70AihB5/on//EABQRAQAAAAAAAAAAAAAAAAAAAED/2gAIAQIBAT8AR//EABQRAQAAAAAAAAAAAAAAAAAAAED/2gAIAQMBAT8AR//Z", "scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw==" } } } })
   break
 
 //--Cek limit user
@@ -907,11 +798,11 @@ case 'ceksaldo':
   if (!isRegister) return reply(mess.only.daftarB)
   uangkau = checkATMuser(sender)
   hasil = `〘  *ATM* 〙
-╔════════════════════
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋
 ╠≽️ *Nama* : *${pushname}*
 ╠≽️ *Saldo* : *Rp.${uangkau}.-*
 ╠≽️ *Nomor* : *${sender.split("@")[0]}*
-╚════════════════════`
+🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋🜋`
   reply(hasil)
   break
 
@@ -919,7 +810,7 @@ case 'ceksaldo':
 
 	break
 					case 'slow':
-					low = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					low = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextinfo
 					slo = await Lxa.downloadAndSaveMediaMessage(low)
 					ran = getRandom('.mp3')
 					exec(`ffmpeg -i ${slo} -filter:a "atempo=0.7,asetrate=44100" ${ran}`, (err, stderr, stdout) => {
@@ -931,7 +822,7 @@ case 'ceksaldo':
 					})
 				break
 				case 'tupai':
-					pai = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					pai = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextinfo
 
 					tup = await Lxa.downloadAndSaveMediaMessage(pai)
 					ran = getRandom('.mp3')
@@ -944,7 +835,7 @@ case 'ceksaldo':
 					})
 				break
 				case 'gemuk':
-					muk = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					muk = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextinfo
 
 					gem = await Lxa.downloadAndSaveMediaMessage(muk)
 					ran = getRandom('.mp3')
@@ -957,7 +848,7 @@ case 'ceksaldo':
 					})
 				break
 				case 'bass':                 
-					ass = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					ass = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextinfo
 
 					bas = await Lxa.downloadAndSaveMediaMessage(ass)
 					ran = getRandom('.mp3')
@@ -970,13 +861,14 @@ case 'ceksaldo':
 					})
 					break
 
-//--Info bot
+//--info bot
+				case 'info':
 				case 'info':
   me = Lxa.user
   uptime = process.uptime()
   teks = `*‣ Nombre del bot* : ${me.name}
   ‣ *Número del bot* : @${me.jid.split('@')[0]}
-  ‣ *Dueño* : eren jeager
+  ‣ *Dueño* : Mr.Pato
   ‣ *Prefijo* : ${prefix}
   ‣ *Usuarios bloqueados* : ${blocked.length}
   ‣ *Tiempo activo* : ${kyun(uptime)}
@@ -984,19 +876,20 @@ case 'ceksaldo':
   ‣ *Total de chats* : ${totalchat.length}`
   buffer = await getBuffer(me.imgUrl)
   Lxa.sendMessage(from, buffer, image, {
-caption: teks, contextInfo: {
+caption: teks, contextinfo: {
   mentionedJid: [me.jid]}})
   break
 
 //---Kecepatan respon
 case 'ping':
   case 'speed':
+  case 'velosidad':
 if (!isRegister) return reply(mess.only.userB)
 const timestamp = speed();
 const latensi = speed() - timestamp
 Lxa.updatePresence(from, Presence.composing)
 uptime = process.uptime()
-Lxa.sendMessage(from, `*El bot responde en*\n‣ *Speed* : ${latensi.toFixed(4)} _Segundos_\n\n*Info bot*\n‣ *Total de chats* : ${totalchat.length}\n‣ *Total de usuarios* : ${_registered.length}\n‣ *Bloqueados* : ${blocked.length}\n‣ *Tiempo activo* : ${kyun(uptime)}`, text, {
+Lxa.sendMessage(from, `*El bot responde en*\n‣ *Speed* : ${latensi.toFixed(4)} _Segundos_\n\n*info bot*\n‣ *Total de chats* : ${totalchat.length}\n‣ *Total de usuarios* : ${_registered.length}\n‣ *Bloqueados* : ${blocked.length}\n‣ *Tiempo activo* : ${kyun(uptime)}`, text, {
   quoted: mek
 })
 break
@@ -1032,7 +925,6 @@ reply(hasil)
   reply(mess.ferr)
 }
 break
-
 //---couple pasangan
 case 'couple':
 Lxa.updatePresence(from, Presence.composing)
@@ -1101,7 +993,6 @@ break
 case 'pinterest':
 tels = body.slice(11)
 if (!isRegister) return reply(mess.only.daftarB)
-
 if (args.length < 1) return reply('Ingresa lo que quieres buscar')
 Lxa.updatePresence(from, Presence.composing)
 try {
@@ -1125,7 +1016,7 @@ case 'listonline':
         		let ido = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : from
 			    let online = [...Object.keys(Lxa.chats.get(ido).presences), Lxa.user.jid]
 			    Lxa.sendMessage(from, 'List Online:\n' + online.map(v => '- @' + v.replace(/@.+/, '')).join`\n`, text, { quoted: mek,
-  			  contextInfo: { mentionedJid: online }
+  			  contextinfo: { mentionedJid: online }
 			    })
 				break
 
@@ -1134,7 +1025,6 @@ case 'listonline':
 //--pinterest anime neko
 case 'neko':
 if (!isRegister) return reply(mess.only.daftarB)
-
 Lxa.updatePresence(from, Presence.composing)
 uk = ["anime neko"]
 nk = uk[Math.floor(Math.random() * uk.length)]
@@ -1182,7 +1072,6 @@ break
 
 //--Pinterest Twitter
   case 'twit':
-  case 'twitter':
 if (!isRegister) return reply(mess.only.daftarB)
 
 Lxa.updatePresence(from, Presence.composing)
@@ -1200,7 +1089,7 @@ n = JSON.parse(JSON.stringify(data));
 nimek = n[Math.floor(Math.random() * n.length)];
 pok = await getBuffer(nimek)
 Lxa.sendMessage(from, pok, image, {
-  quoted: mek
+quoted: mek
 })
 
 } catch {
@@ -1210,7 +1099,6 @@ break
 
   //
   case 'anime':
-  case 'yaoi':
 if (!isRegister) return reply(mess.only.daftarB)
 
 Lxa.updatePresence(from, Presence.composing)
@@ -1552,6 +1440,7 @@ reply(data.result)
 break
 
 case 'pantun':
+case 'poesia':
 
 Lxa.updatePresence(from, Presence.composing)
 if (!isRegister) return reply(mess.only.daftarB)
@@ -1623,7 +1512,7 @@ case 'kusonime':
   if (args.length < 1) return reply('Escribe el nombre')
   try {
   data = await fetchJson(`https://st4rz.herokuapp.com/api/kuso?q=${teks}`)
-  hasil = `‣ *Nombre* : ${data.title}\n‣ *Info* : ${data.info}\n‣ *Sinopsis* : ${data.sinopsis}\n‣ *Link download* :\n${data.link_dl}`
+  hasil = `‣ *Nombre* : ${data.title}\n‣ *info* : ${data.info}\n‣ *Sinopsis* : ${data.sinopsis}\n‣ *Link download* :\n${data.link_dl}`
   buf = await getBuffer(data.thumb)
   Lxa.sendMessage(from, buf, image, {
 quoted: mek, caption: hasil
@@ -1707,7 +1596,7 @@ if (!isGroup) return reply(mess.only.group)
 if (!isRegister) return reply(mess.only.daftarB)
 if (!isGroupAdmins) return reply(mess.only.admin)
 if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
+const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextinfo: mek
 reply(mess.wait)
 const media = await Lxa.downloadAndSaveMediaMessage(encmedia)
 await Lxa.updateProfilePicture (from, media)
@@ -1719,7 +1608,7 @@ case 'triggered':
  if (!isRegister) return reply(mess.only.userB)
             var imgbb = require('imgbb-uploader')
            if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-           ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+           ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextinfo : mek
            reply(mess.wait)
          owgi = await Lxa.downloadAndSaveMediaMessage(ger)
            anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
@@ -1745,7 +1634,7 @@ case 'tourl':
  if (!isRegister) return reply(mess.only.userB)
             var imgbb = require('imgbb-uploader')
            if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-           ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+           ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextinfo : mek
            reply(mess.wait)
          owgi = await Lxa.downloadAndSaveMediaMessage(ger)
            anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
@@ -1760,7 +1649,7 @@ case 'wasted':
 if (!isRegister) return reply(mess.only.userB)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-  ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
+  ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextinfo: mek
   reply(mess.wait)
   owgi = await Lxa.downloadAndSaveMediaMessage(ger)
   anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
@@ -1787,7 +1676,7 @@ case 'drawing':
 if (!isRegister) return reply(mess.only.userB)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
+  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextinfo: mek
   reply(mess.wait)
   owgi = await Lxa.downloadAndSaveMediaMessage(ted)
   tels = body.slice(7)
@@ -1804,7 +1693,7 @@ case 'wanted':
 if (!isRegister) return reply(mess.only.userB)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
+  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextinfo: mek
   reply(mess.wait)
   owgi = await Lxa.downloadAndSaveMediaMessage(ted)
   tels = body.slice(7)
@@ -1820,7 +1709,7 @@ case 'gtav':
 if (!isRegister) return reply(mess.only.userB)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
+  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextinfo: mek
   reply(mess.wait)
   owgi = await Lxa.downloadAndSaveMediaMessage(ted)
   tels = body.slice(7)
@@ -1852,7 +1741,7 @@ case 'wame':
   Lxa.updatePresence(from, Presence.composing)
   options = {
 text: `Link WhatsApp: *wa.me/${sender.split("@s.whatsapp.net")[0]}*\n*Or ( / )*\n*api.whatsapp.com/send?phone=${sender.split("@")[0]}*`,
-contextInfo: {
+contextinfo: {
   mentionedJid: [sender]
 }
   }
@@ -1922,7 +1811,7 @@ break
 case 'fitnah':
 if (args.length < 1) return reply(`Uso :\n${prefix}fitnah [@tag|pesan|balasanbot]]\n\nEx : \n${prefix}fitnah @tagmember|hai|hai juga`)
 var gh = body.slice(7)
-mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+mentioned = mek.message.extendedTextMessage.contextinfo.mentionedJid
 var replace = gh.split("|")[0];
 var target = gh.split("|")[1];
 var bot = gh.split("|")[2];
@@ -1970,7 +1859,7 @@ member.map(async adm => {
 })
 options = {
   text: teks,
-  contextInfo: {
+  contextinfo: {
 mentionedJid: jids
   },
   quoted: mek
@@ -2081,7 +1970,7 @@ if (data.message) return reply(`La información de  *${teks} no se encontro`)
 break
 
 //---Ganti nama grup
-  case 'setname':
+  case 'nuevo nombre':
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admin)
 if (!isBotGroupAdmins) return reply(mess.only.Badmin)
@@ -2128,7 +2017,7 @@ case 'tagme':
 if (!isRegister) return reply(mess.only.daftarB)
 const tagme = {
   text: `@${sender.split("@")[0]} Hola`,
-  contextInfo: {
+  contextinfo: {
 mentionedJid: [sender]
   }
 }
@@ -2225,7 +2114,6 @@ method: 'get'
 
 //--mini map
 case 'map':
-case 'mapa':
   if (!isRegister) return reply(mess.only.daftarB)
   
   if (args.length < 1) return reply('Ingresa el nombre del área')
@@ -2288,8 +2176,8 @@ break
 
 //---kontak pemilik bot
 case 'owner':
-case 'creator':
-case 'eren':
+  case 'creator':
+  case 'dueño':
 Lxa.sendMessage(from, {
   displayname: "Jeff", vcard: vcard
 }, MessageType.contact, {
@@ -2363,7 +2251,7 @@ case 'cuaca':
   anu = await fetchJson(`https://freerestapi.herokuapp.com/api/v1/cuaca?p=${tels}`, {
 method: 'get'
   })
-  hasil = `‣ *El lugar* : ${anu.hasil.Nama}\n‣ *Cuaca* : ${anu.hasil.Cuaca}\n‣ *Viento* : ${anu.hasil.Angin}\n‣ *Suhu* : ${anu.hasil.Suhu}\n‣ *Humedad* : ${anu.hasil.Kelembaban}\n‣ *Información* : ${anu.hasil.Keterangan}`
+  hasil = `‣ *El lugar* : ${anu.hasil.Nama}\n‣ *Cuaca* : ${anu.hasil.Cuaca}\n‣ *Viento* : ${anu.hasil.Angin}\n‣ *Suhu* : ${anu.hasil.Suhu}\n‣ *Humedad* : ${anu.hasil.Kelembaban}\n‣ *información* : ${anu.hasil.Keterangan}`
   Lxa.sendMessage(from, hasil, text, {
 quoted: mek
   })
@@ -2589,7 +2477,6 @@ mimetype: 'video/mp4', filename: `${anu.result.title}.mp4`, quoted: mek
   break
 
 case 'ig':
-case 'insta':
   if (!isRegister) return reply(mess.only.daftarB)
   
   reply(mess.wait)
@@ -2610,12 +2497,13 @@ mimetype: 'video/mp4', filename: `Imlexa.mp4`, quoted: mek
 
 //joox download
 case 'joox':
+case 'decargar':
   if (!isRegister) return reply(mess.only.daftarB)
   
   if (args.length < 1) return reply('Ingresa el nombre de la canción')
   tels = body.slice(6)
   try {
-  data = await fetchJson(`https://tobz-api.herokuapp.com/api/joox?q=${tels}&apikey=BotWeA`, {
+  data = await fetchJson(`https://tobz-api.herokuapp.com/api/descargar?q=${tels}&apikey=BotWeA`, {
 method: 'get'
   })
   infomp3 = `*Encontrado!!*\nNombre : ${data.result.judul}\nAlbúm : ${data.result.album}\nPublicado: ${data.result.dipublikasi}`
@@ -2662,14 +2550,14 @@ case 'tik':
 method: 'get'
   })
   if (anu.error) return reply(anu.error)
-  teks = `*Nombre* : ${anu.result.nameInfo}\n*Caption* : ${anu.result.textInfo}\n\n_Enviando archivos, espere_`
+  teks = `*Nombre* : ${anu.result.nameinfo}\n*Caption* : ${anu.result.textinfo}\n\n_Enviando archivos, espere_`
   thumb = await getBuffer(anu.result.image)
   Lxa.sendMessage(from, thumb, image, {
 quoted: mek, caption: teks
   })
   buffer = await getBuffer(anu.result.mp4direct)
   Lxa.sendMessage(from, buffer, video, {
-mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
+mimetype: 'video/mp4', filename: `${anu.nameinfo}.mp4`, quoted: mek
   })
   
   } catch {
@@ -2698,13 +2586,13 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 						teks += `~> @${block.split('@')[0]}\n`
 					}
 					teks += `Total : ${blocked.length}`
-					Lxa.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": blocked}})
+					Lxa.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextinfo: {"mentionedJid": blocked}})
 					break
 
 //--read text on image
 				case 'ocr':
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextinfo : mek
 						const media = await Lxa.downloadAndSaveMediaMessage(encmedia)
 						reply(mess.wait)
 						await recognize(media, {lang: 'eng+ind', oem: 1, psm: 3})
@@ -2787,9 +2675,8 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 				case 'stiker':
 				case 'sticker':
 				  case 's':
-				case 'st':
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextinfo : mek
 						const media = await Lxa.downloadAndSaveMediaMessage(encmedia)
 						ran = getRandom('.webp')
 						await ffmpeg(`./${media}`)
@@ -2817,8 +2704,8 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 							.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
 							.toFormat('webp')
 							.save(ran)
-					} else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
-						const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+					} else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextinfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
+						const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextinfo : mek
 						const media = await Lxa.downloadAndSaveMediaMessage(encmedia)
 						ran = getRandom('.webp')
 						reply(mess.wait)
@@ -2849,7 +2736,7 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 							.toFormat('webp')
 							.save(ran)
 					} else if ((isMedia || isQuotedImage) && args[0] == 'nobg') {
-						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextinfo : mek
 						const media = await Lxa.downloadAndSaveMediaMessage(encmedia)
 						ranw = getRandom('.webp')
 						ranp = getRandom('.png')
@@ -2873,7 +2760,7 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 							})
 						})
 					/*} else if ((isMedia || isQuotedImage) && colors.includes(args[0])) {
-						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextinfo : mek
 						const media = await Lxa.downloadAndSaveMediaMessage(encmedia)
 						ran = getRandom('.webp')
 						await ffmpeg(`./${media}`)
@@ -2904,7 +2791,7 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 				var itsme = `0@s.whatsapp.net`
 				var split = `${cr}`
 				var selepbot = {
-					contextInfo: {
+					contextinfo: {
 						participant: itsme,
 						quotedMessage: {
 							extendedTextMessage: {
@@ -2927,7 +2814,7 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 				var itsme = `0@s.whatsapp.net`
 				var split = `${cr}`
 				var selepbot = {
-					contextInfo: {
+					contextinfo: {
 						participant: itsme,
 						quotedMessage: {
 							extendedTextMessage: {
@@ -2953,7 +2840,7 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 					teks += `- ${awokwkwk}\n`
 				}
 				teks += `\n*Total : ${setiker.length}*\nUsa el comando\n*${prefix}getstik (nombre del pack)*\npara seleccionar sticker`
-				Lxa.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextInfo: { "mentionedJid": setiker } })
+				Lxa.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextinfo: { "mentionedJid": setiker } })
 				break
 			
 			case 'totaluser':
@@ -2962,7 +2849,7 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 					teks += `[${id.toString()}]\`\`\` @${i.split('@')[0]}`
 				}
 				teks += `\n*Total : ${_registered.length}`
-				Lxa.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextInfo: { "mentionedJid": _registered} })
+				Lxa.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextinfo: { "mentionedJid": _registered} })
 				break
 
 			case 'addstik':
@@ -2970,7 +2857,7 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 				if (!isOwner) return reply(mess.only.ownerB)
 				svst = body.slice(9)
 				if (!svst) return reply('Nombre del sticker?')
-				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextinfo
 				delb = await Lxa.downloadMediaMessage(boij)
 				setiker.push(`${svst}`)
 				fs.writeFileSync(`./temp/stick/${svst}.webp`, delb)
@@ -2983,7 +2870,7 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 				if (!isOwner) return reply(mess.only.ownerB)
 				svst = body.slice(7)
 				if (!svst) return reply('Nombre del audio?')
-				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextinfo
 				delb = await Lxa.downloadMediaMessage(boij)
 				audionye.push(`${svst}`)
 				fs.writeFileSync(`./temp/audio/${svst}.mp3`, delb)
@@ -3008,7 +2895,7 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 					teks += `- ${awokwkwk}\n`
 				}
 				teks += `\n*Total : ${audionye.length}*\nUsa el comando\n*${prefix}getvn (nombre del pack)*\n`
-				Lxa.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextInfo: { "mentionedJid": audionye } })
+				Lxa.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextinfo: { "mentionedJid": audionye } })
 				break
 
 			case 'addimg':
@@ -3016,7 +2903,7 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 				if (!isOwner) return reply(mess.only.ownerB)
 				svst = body.slice(8)
 				if (!svst) return reply('Nombre de la imagen')
-				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextinfo
 				delb = await Lxa.downloadMediaMessage(boij)
 				imagenye.push(`${svst}`)
 				fs.writeFileSync(`./temp/foto/${svst}.jpeg`, delb)
@@ -3040,7 +2927,7 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 					teks += `- ${awokwkwk}\n`
 				}
 				teks += `\n*Total : ${imagenye.length}*\nUsa el comando\n*${prefix}getimg (nombre del pack)*\n`
-				Lxa.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextInfo: { "mentionedJid": imagenye } })
+				Lxa.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextinfo: { "mentionedJid": imagenye } })
 				break
 
 			case 'addvid':
@@ -3048,7 +2935,7 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 				if (!isQuotedVideo) return reply('Responde un video')
 				svst = body.slice(8)
 				if (!svst) return reply('Nombre del video')
-				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextinfo
 				delb = await Lxa.downloadMediaMessage(boij)
 				videonye.push(`${svst}`)
 				fs.writeFileSync(`./temp/video/${svst}.mp4`, delb)
@@ -3072,7 +2959,7 @@ mimetype: 'video/mp4', filename: `${anu.nameInfo}.mp4`, quoted: mek
 					teks += `- ${awokwkwk}\n`
 				}
 				teks += `\n*Total : ${videonye.length}*\nUsa el comando\n*${prefix}getvid (nombre del pack)*\n`
-				Lxa.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextInfo: { "mentionedJid": videonye } })
+				Lxa.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextinfo: { "mentionedJid": videonye } })
 				break
 
 
@@ -3116,7 +3003,7 @@ Lxa.updatePresence(from,
 if (!isRegister) return reply(mess.only.daftarB)
 if (!isQuotedSticker) return reply('Responde un sticker')
 reply(mess.wait)
-anumedia = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+anumedia = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextinfo
 anum = await Lxa.downloadAndSaveMediaMessage(anumedia)
 ran = getRandom('.webp')
 exec(`ffmpeg -i ${anum} ${ran}`, (err) => {
@@ -3137,7 +3024,7 @@ Lxa.updatePresence(from,
 if (!isRegister) return reply(mess.only.daftarB)
 if (!isQuotedVideo) return reply('Responde a un video')
 reply(mess.wait)
-mitri = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+mitri = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextinfo
 duh = await Lxa.downloadAndSaveMediaMessage(mitri)
 ran = getRandom('.mp4')
 exec(`ffmpeg -i ${duh} ${ran}`, (err) => {
@@ -3221,6 +3108,7 @@ break
 
 
 case 'block':
+case 'bloquea'
   Lxa.updatePresence(from, Presence.composing)
   if (!isGroup) return reply(mess.only.group)
   if (!isOwner) return reply(mess.only.ownerB)
@@ -3253,7 +3141,7 @@ case 'unblock':
 				case 'tiktokstalk':
 					try {
 						if (args.length < 1) return Lxa.sendMessage(from, 'Escribe el nombre de usuario', text, {quoted: mek})
-						let { user, stats } = await tiktod.getUserProfileInfo(args[0])
+						let { user, stats } = await tiktod.getUserProfileinfo(args[0])
 						reply(mess.wait)
 						teks = `*ID* : ${user.id}\n*Username* : ${user.uniqueId}\n*Nickname* : ${user.nickname}\n*Followers* : ${stats.followerCount}\n*Followings* : ${stats.followingCount}\n*Posts* : ${stats.videoCount}\n*Luv* : ${stats.heart}\n`
 						buffer = await getBuffer(user.avatarLarger)
@@ -3321,7 +3209,7 @@ for (let mem of groupMembers) {
   teks += `┃ @${mem.jid.split('@')[0]}\n`
   members_id.push(mem.jid)
 }
-mentions('〘  *TAGALL* 〙\n┏━━━━━━━━━━━━━━━━━━━━\n┠⊷'+teks+'┃━━━━━━━━━━━━━━━━━━━━\n┃────꧁꯭𝐄𝐑𝐄𝐍-𝐉𝐄𝐀𝐆𝐄𝐑࿈〖𓆐〗࿐᪲🖤────\n┗━━━━━━━━━━━━━━━━━━━━', members_id, true)
+mentions('〘  *TAGALL* 〙\n┏━━━━━━━━━━━━━━━━━━━━\n┠⊷'+teks+'┃━━━━━━━━━━━━━━━━━━━━\n┃──꧁꯭𝐄𝐑𝐄𝐍-𝐉𝐄𝐀𝐆𝐄𝐑࿈〖𓆐〗࿐᪲🖤──\n┗━━━━━━━━━━━━━━━━━━━━', members_id, true)
 break
 
 
@@ -3340,7 +3228,7 @@ break
 					if (args.length < 1) return reply('.......')
 					anu = await Lxa.chats.all()
 					if (isMedia && !mek.message.videoMessage || isQuotedImage) {
-						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextinfo : mek
 						buff = await Lxa.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
 							Lxa.sendMessage(_.jid, buff, image, {caption: `*${body.slice(4)}*`})
@@ -3355,12 +3243,13 @@ break
 					break
 
 //--menaikan jabatan
+      case 'daradmin':
       case 'promote':
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return
-					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+					mentioned = mek.message.extendedTextMessage.contextinfo.mentionedJid
 					if (mentioned.length > 1) {
 						teks = 'Con exito \n'
 						for (let _ of mentioned) {
@@ -3375,7 +3264,7 @@ break
 					break
 
   //ganti nama grup
-  case 'setname':
+  case 'nuevo nombre':
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admin)
 if (!isBotGroupAdmins) return reply(mess.only.Badmin)
@@ -3398,14 +3287,14 @@ Lxa.sendMessage(from, 'Cambiar descripción del grupo', text, {
 break
 
 //--menurunkan jabatan
-				case 'demote':
+				case 'Quitaradmin':
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return
-					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+					mentioned = mek.message.extendedTextMessage.contextinfo.mentionedJid
 					if (mentioned.length > 1) {
-						teks = 'Admin quitado con exito\n'
+						teks = 'Un admin menos por mal parido'
 						for (let _ of mentioned) {
 							teks += `@${_.split('@')[0]}\n`
 						}
@@ -3413,7 +3302,7 @@ break
 						Lxa.groupRemove(from, mentioned)
 					} else {
 						mentions(`Un admi menos @${mentioned[0].split('@')[0]} por gei!`, mentioned, true)
-						Lxa.groupDemoteAdmin(from, mentioned)
+						Lxa.groupQuitaradminAdmin(from, mentioned)
 					}
 					break
 
@@ -3434,12 +3323,12 @@ break
 					break
 
 //--mengeluarkan member
-				case 'kick':
+				case 'Elimina':
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag target')
-					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+					mentioned = mek.message.extendedTextMessage.contextinfo.mentionedJid
 					if (mentioned.length > 1) {
 						teks = 'Orden recibida :\n'
 						for (let _ of mentioned) {
@@ -3471,7 +3360,7 @@ break
 case 'setppbot':
   Lxa.updatePresence(from, Presence.composing)
   if (!isOwner) return reply(mess.only.ownerB)
-  const botpp = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contxtInfo: mek
+  const botpp = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contxtinfo: mek
   const cuk = await Lxa.downloadAndSaveMediaMessage(botpp)
   await Lxa.updateProfilePicture(botNumber, cuk)
   reply('Gracias por el nuevo perfil')
@@ -3521,7 +3410,7 @@ reply(ind.satukos())
 					if (!isQuotedSticker) return reply('Responde sticker')
 					if (!isRegister) return reply(mess.only.daftarB)
 					reply(mess.wait)
-					imgmed = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					imgmed = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextinfo
 					medimg = await Lxa.downloadAndSaveMediaMessage(imgmed)
 					ran = getRandom('.png')
 					exec(`ffmpeg -i ${medimg} ${ran}`, (err) => {
@@ -3565,6 +3454,7 @@ break
 
 case 'bot':
 case 'eren':
+case 'liz':
 					if (args.length < 1) return reply(`Bot ${pushname}`)
 					teks = body.slice(5)
 					try { 
@@ -3580,6 +3470,7 @@ case 'eren':
 case 'verify':
 case 'daftar':
   case 'register':
+  case 'jeager':
 if (isRegister) return reply('Tu cuenta ya estaba verificada')
 const namaUser = `${pushname}`
 const umurUser = `${sender}`
@@ -3611,7 +3502,7 @@ reply(tm)
 break
 
 //--grup semua peserta
-case 'closegc':
+case 'cerrar':
   Lxa.updatePresence(from, Presence.composing)
   if (!isGroup) return reply(mess.only.group)
   if (!isGroupAdmins) return reply(mess.only.admin)
@@ -3619,7 +3510,7 @@ case 'closegc':
   var nomor = mek.participant
   const close = {
 text: `Grupo cerrado por @${nomor.split("@s.whatsapp.net")[0]}\n ahora solo los admins facheros pueden escribir`,
-contextInfo: {
+contextinfo: {
   mentionedJid: [nomor]
 }
   }
@@ -3628,15 +3519,16 @@ contextInfo: {
   break
 
 //--grup hanya admin
-case 'opengc':
+case 'Abrir':
   case 'bukagc':
+  case 'open':
 Lxa.updatePresence(from, Presence.composing)
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admin)
 if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 open = {
   text: `Grupo abierto por @${sender.split("@")[0]}\n ahora todos pueden usar el bot`,
-  contextInfo: {
+  contextinfo: {
 mentionedJid: [sender]
   }
 }
@@ -3649,15 +3541,16 @@ break
 //---mengahapus pesan bot
 case 'delete':
   case 'del':
+  case 'borrar':
 if (!isGroup)return reply(mess.only.group)
 if (!isRegister) return reply(mess.only.daftarB)
 if (!isGroupAdmins)return reply(mess.only.admin)
 try {
 Lxa.deleteMessage(from, {
-  id: mek.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true
+  id: mek.message.extendedTextMessage.contextinfo.stanzaId, remoteJid: from, fromMe: true
 })
 } catch {
-  reply('Solo puedo borrar mensajes míos')
+  reply('Mmg tu eres un bot?')
 }
 break
 
@@ -3741,7 +3634,7 @@ break
 					if (!isOwner) return reply(mess.only.ownerB)
 					if (args.length < 1) return reply('Tag target')
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag cvk')
-					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
+					mentioned = mek.message.extendedTextMessage.contextinfo.mentionedJid[0]
 					let { jid, id, notify } = groupMembers.find(x => x.jid === mentioned)
 					try {
 						pp = await Lxa.getProfilePicture(id)
@@ -3755,7 +3648,7 @@ break
 				case 'wait':
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 						reply(mess.wait)
-						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextinfo : mek
 						media = await Lxa.downloadMediaMessage(encmedia)
 						await wait(media).then(res => {
 							Lxa.sendMessage(from, res.video, video, {quoted: mek, caption: res.teks.trim()})
